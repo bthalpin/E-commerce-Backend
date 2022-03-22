@@ -14,6 +14,10 @@ ProductTag.init(
     },
     productId:{
       type:DataTypes.INTEGER,
+      references:{
+        model:'product',
+        key:'id'
+      }
       // 
       // 
       // FOREIGN KEY
@@ -22,6 +26,10 @@ ProductTag.init(
     },
     tagId:{
       type:DataTypes.INTEGER,
+      references:{
+        model:'tag',
+        key:'id'
+      }
       // 
       // 
       // FOREIGN KEY
