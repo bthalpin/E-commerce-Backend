@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
@@ -12,18 +11,24 @@ ProductTag.init(
       autoIncrement:true,
       allowNull:false
     },
+
+    // Foreign key for product
     productId:{
       type:DataTypes.INTEGER,
       references:{
         model:'product',
-        key:'id'
+        key:'id',
+        onDelete:'CASCADE'
       }
     },
+
+    // Foreign key for tag
     tagId:{
       type:DataTypes.INTEGER,
       references:{
         model:'tag',
-        key:'id'
+        key:'id',
+        onDelete:'CASCADE'
       }
     }
   },

@@ -6,7 +6,6 @@ class Category extends Model {}
 
 Category.init(
   {
-    // Sets NOT NULL by default
     id:{
       type:DataTypes.INTEGER,
       primaryKey:true,

@@ -5,7 +5,6 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', async (req, res) => {
   // find all tags
-  // be sure to include its associated Product data
   try{
     const tags = await Tag.findAll({include:Product})
     res.status(200).json(tags)
@@ -18,9 +17,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
-  // be sure to include its associated Product data
   try{
-    const selectedTag = await Tag.findOne({where:{id:req.params.id},include:Product})
+    const selectedTag = await Tag.findByPk(req.params.id,{include:Product})
     res.status(200).json(selectedTag)
 
   } catch(err){
@@ -55,6 +53,8 @@ router.put('/:id', async (req, res) => {
         id:req.params.id
       },
     })
+
+    // If no rows were changed
     if(!updatedTag[0]){
       res.status(400).json('No updates were made')
       return
@@ -75,6 +75,8 @@ router.delete('/:id', async (req, res) => {
         id:req.params.id
       }
     })
+
+    // If no row was deleted
     if (!deletedTag){
       res.status(400).json('No matching tag in the database')
       return
