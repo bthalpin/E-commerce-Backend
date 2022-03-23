@@ -37,6 +37,8 @@ router.post('/', async (req, res) => {
       return
     }
     const newCategory = await Category.create(req.body)
+    // newCategory.dataValues.message = "Successfully added"
+    // console.log(newCategory)
     res.status(200).json(newCategory)
 
   }catch(err){
