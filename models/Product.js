@@ -40,11 +40,6 @@ Product.init(
         model:'category',
         key:'id'
       }
-      // 
-      // ONE to Many
-      // FOREIGN KEY
-      // 
-      // 
     }
   },
   {

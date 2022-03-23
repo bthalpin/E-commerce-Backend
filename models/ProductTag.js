@@ -18,11 +18,6 @@ ProductTag.init(
         model:'product',
         key:'id'
       }
-      // 
-      // 
-      // FOREIGN KEY
-      // MANY TO MANY?
-      // 
     },
     tagId:{
       type:DataTypes.INTEGER,
@@ -30,11 +25,6 @@ ProductTag.init(
         model:'tag',
         key:'id'
       }
-      // 
-      // 
-      // FOREIGN KEY
-      // 
-      // 
     }
   },
   {
